@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import secrets
-import string
+import string 
 import re
 
 app = Flask(__name__)
