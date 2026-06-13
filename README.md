@@ -46,33 +46,33 @@ password-generator/
 
 ---
 
-##  Installation
+###  Github repository
 
-1. Clone the repository
+https://github.com/ishaa-305/Password-Generator
 
-```bash
-git clone  https://github.com/ishaa-305/Password-Generator
-```
+---
 
-2. Navigate to the project folder
+## How to run 
+
+1. Navigate to the project folder
 
 ```bash
 cd password-generator
 ```
 
-3. Install Flask
+2. Install Flask
 
 ```bash
 pip install flask
 ```
 
-4. Run the application
+3. Run the application
 
 ```bash
 python app.py
 ```
 
-5. Open your browser and visit
+4. Open your browser and visit
 
 ```text
 http://127.0.0.1:5000
