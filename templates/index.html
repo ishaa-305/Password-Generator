@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Password Generator</h1>
+
+        <p class="subtitle">
+            Generate strong and secure passwords instantly.
+        </p>
+
+        <form method="POST">
+
+            <input
+                type="number"
+                name="length"
+                placeholder="Enter Password Length"
+                min="8"
+                value="{{ length }}"
+                required
+                class="input-box"
+            >
+
+            <div class="checkbox-group">
+
+                <label>
+                    <input  
+                       type="checkbox"
+                       name="numbers"
+                       {% if numbers %}checked{% endif %}
+                    >
+                    Include Numbers
+                </label>
+
+                <label>
+                    <input 
+                        type="checkbox"
+                        name="symbols"
+                        {% if symbols %}checked{% endif %}
+                    >
+                    Include Symbols
+                </label>
+
+            </div>
+
+            <button type="submit" class="generate-btn">
+                Generate Password
+            </button>
+
+        </form>
+
+        {% if password %}
+
+        <div class="password-section">
+
+            <div class="password-row">
+
+                <input
+                    id="passwordField"
+                    type="text"
+                    value="{{ password }}"
+                    readonly
+                >
+
+                <button
+                    type="button"
+                    class="copy-btn"
+                    onclick="copyPassword()"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+           <p class="strength">
+    Strength:
+    <span class="{{ strength|lower|replace(' ','-') }}">
+        {{ strength }}
+    </span>
+</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <script>
+
+        function copyPassword() {
+
+            let password =
+                document.getElementById("passwordField");
+
+            navigator.clipboard.writeText(
+                password.value
+            );
+
+            alert("Password Copied Successfully!");
+        }
+
+    </script>
+
+</body>
+
+</html>
